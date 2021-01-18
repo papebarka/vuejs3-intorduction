@@ -4,7 +4,7 @@ const app = Vue.createApp({
             product: 'shoes',
             description: 'Nike Air Jordan 980s',
             image: './assets/images/socks_green.jpg',
-            url: 'www.amazon.com'
+            url: 'www.amazon.fr'
         }
     }
 })
