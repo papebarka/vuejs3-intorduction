@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vue Mastery</title>
+    <title>VueJS 3 - Introduction</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
@@ -10,16 +10,29 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{ product }}</h1>
-      <p>{{ description }}</p>
+      <div class="nav-bar"></div>
+      
+      <div class="product-display">
+        <div class="product-container">
+          <div class="product-image">
+            <img v-bind:src="image" alt="Image">
+          </div>
+          <div class="product-info">
+            <h1>{{ product }}</h1>
+            <div>
+              <a :href="url">Link to amazon</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Import Vue App -->
+    <!-- Import App -->
     <script src="./main.js"></script>
 
-    <!-- Mounting app -->
+    <!-- Mount App -->
     <script>
-      const appMounted = app.mount('#app');
+      const appMounted = app.mount('#app')
     </script>
   </body>
 </html>
