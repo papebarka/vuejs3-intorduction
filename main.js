@@ -1,16 +1,28 @@
 const app = Vue.createApp({
     data(){
         return {
-            product: 'shoes',
+            cart: 0,
+            product: 'Socks',
             description: 'Nike Air Jordan 980s',
             image: './assets/images/socks_green.jpg',
             inStock: true,
             details: ['50% cotton', '30% wool', '20% Polyester'],
             variants: [
-                { id: 2234, color: 'Green' },
-                { id: 2235, color: 'Blue' }
+                { id: 2234, color: 'Green', image: './assets/images/socks_green.jpg' },
+                { id: 2235, color: 'Blue', image: './assets/images/socks_blue.jpg' }
             ],
-            sizes: ['32', '34', '34', '40', '45'],
+            
+        }
+    },
+    methods: {
+        addToCart(){
+            this.cart += 1
+        },
+        removeFromCart(){
+            if(this.cart >0) { this.cart -= 1 }
+        },
+        updateImage(variantImage){
+            this.image = variantImage
         }
     }
 })
