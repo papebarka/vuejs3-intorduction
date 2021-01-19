@@ -4,7 +4,11 @@ app.component('product-display', {
         premium: {
             type: Boolean,
             required: true
-        }
+        },
+        cart:{
+            type: Array,
+            required: true
+        },
     },
 
     template:
@@ -42,7 +46,10 @@ app.component('product-display', {
         
             </div>
         </div>
-    </div>`,
+    </div>
+    <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+    <review-form @review-submitted="addReview"></review-form>
+    `,
 
     data() {
         return {
@@ -55,16 +62,20 @@ app.component('product-display', {
               quantity: 50, onSale: true },
               { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg',
               quantity: 0, onSale: false },
-            ]
+            ],
+            reviews: []
         }
     },
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
         },
         updateVariant(index) {
             this.selectedVariant = index
-        }
+        },
+        addReview(review){
+            this.reviews.push(review)
+        },
     },
     computed: {
         title(){
